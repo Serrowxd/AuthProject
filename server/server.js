@@ -1,11 +1,15 @@
 // Dependencies
 const express = require('express');
-const helmet = require('helmet');
 const mongoose = require('mongoose');
-const cors = require('cors');
+// const helmet = require('helmet');
+// const cors = require('cors');
+// const morgan = require('morgan');
 
 // Server
 const server = express();
+
+// Route Imports
+const setupMiddleware = require('./setup/middleware')(server); // takes the code from middleware, passes in server with this you can pass in the commented portion above
 
 // Mongoose
 mongoose
@@ -18,9 +22,10 @@ mongoose
   });
 
 // Middleware
-server.use(helmet());
-server.use(express.json());
-server.use(cors());
+// server.use(helmet());
+// server.use(express.json());
+// server.use(cors());
+// This can be commented out because of "setupMiddleware" - it imports all our middleware for us and cleans up the file.
 
 // Route
 
