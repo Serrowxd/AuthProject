@@ -10,6 +10,8 @@ const server = express();
 
 // Route Imports
 const setupMiddleware = require('./setup/middleware')(server); // takes the code from middleware, passes in server with this you can pass in the commented portion above
+const setupRoutes = require('./setup/routes')(server); // same as setupMiddleware, passes in routes.
+// these can also be written as - setupMiddleware(server); - we are doing it all on one line to save time.
 
 // Mongoose
 mongoose
@@ -31,8 +33,9 @@ mongoose
 
 // Server Code
 
-server.get('/', (req, res) => {
-  res.send({ api: 'Henlo (OvO")' });
-});
+// server.get('/', (req, res) => {
+//   res.send({ api: 'Henlo (OvO")' });
+// });
+// Commented out because of "setupRoutes"
 
 server.listen(5000, () => console.log('\n=== API running on Port 5000 ===\n'));
