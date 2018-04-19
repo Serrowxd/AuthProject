@@ -24,4 +24,13 @@ userSchema.pre('save', function(next) {
   });
 });
 
+// can also be written as - vvv - the arrow function removes the need for const user = this;
+// userSchema.pre('save', function(next) {
+//   const user = this;
+//   bcrypt.hash(this.password, 10).then(function(hash) {
+//     this.password = hash;
+//     next();
+//   });
+// });
+
 module.exports = mongoose.model('User', userSchema, 'users');
