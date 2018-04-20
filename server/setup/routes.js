@@ -1,6 +1,6 @@
 const User = require('../users/User');
 
-module.exports = function(server) {
+module.exports = function (server) {
   //
   server.get('/', (req, res) => {
     res.send({ api: 'Henlo (OvO")' });
